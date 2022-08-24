@@ -1,0 +1,40 @@
+@charset "utf-8";
+body{
+    
+    font-family: 'Spoqa Han Sans';
+    
+}
+
+.section{
+    background-repeat: no-repeat;background-position: center;background-size: cover;
+}
+.section.page1{background-image: url(../img/sec01_bg.png);}
+.section.page2{background-image: url(../img/sec02_bg.png);}
+.section.page3{background-image: url(../images/bg3.jpg);height: 300vh;}
+.section.page4{background-image: url(../images/bg4.jpg);}
+
+
+
+.topMenu li.active{background: skyblue;border-radius: 5px;}
+.topMenu li.active a{color:#000 !important}
+
+
+.t1{transform:translateY(100px);transition:0.3s;opacity: 0;}
+.t1.move{transform:translateY(0);opacity: 1;}
+
+.section.page5{height: 300px !important;background: #ccc;}
+
+.nextBtn{
+    position: absolute;bottom: 80px;left:50%;transform: translateX(-50%);
+    animation: xScroll 0.8s infinite alternate;
+}
+@keyframes xScroll{
+    to{bottom:50px}
+}
+
+h1.view{position: fixed;z-index: 1;}
+
+
+
+h4{font-size: 24px;line-height: 36px;letter-spacing:-1px;}
+
