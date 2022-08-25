@@ -28,16 +28,16 @@
             threshold:[0.2,0.5,1]
         }
         function secView(entries){
-            console.log(entries[0].intersectionRatio)
+            //console.log(entries[0].target.querySelector("h1"))
             if(entries[0].intersectionRatio > 0){
-                entries[0].target.style.opacity = String(entries[0].intersectionRatio)
+                entries[0].target.querySelector("h1").style.transform = `translateY(${entries[0].intersectionRatio}px)`
             }
         }
         const io = new IntersectionObserver(secView,options);
 
         const page = document.querySelectorAll(".section");
         
-            io.observe(page[0]);
+            io.observe(page[0].querySelector("h1"));
         
     </script>
 </body>
