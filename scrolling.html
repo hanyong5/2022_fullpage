@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrolling</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" integrity="sha512-rCjfoab9CVKOH/w/T6GbBxnAH5Azhy4+q1EXW5XEURefHbIkRbQ++ZR+GBClo3/d3q583X/gO4FKmOFuhkKrdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        html,body{height: 100%;overflow: hidden;}
+        *{margin: 0;padding: 0;}
+        .section{height: 100vh;}
+        .bg02{background: skyblue;}
+        .bg03{background: red;}
+        .footer{height: 300px;background: blue;}
+    </style>
+</head>
+<body>
+    <div class="section bg01 active"></div>
+    <div class="section bg02"></div>
+    <div class="section bg03"></div>
+    <div class="section bg04"></div>
+    
+    <script>
+        let current = 0;
+        let viewCount = 2;
+        const divNum = $(".section").length * viewCount;
+        let overScroll = true;
+        let wHeight = window.innerHeight / viewCount;
+
+        $(".section").mousewheel(function(e){
+            e.preventDefault();
+            //console.log(e.deltaY)
+            //current=0;
+            if(overScroll == true){
+                if(e.deltaY < 0){
+                    overScroll=false;
+                    current++;
+                    if(current == divNum){
+                        current=divNum-3;
+                        overScroll = true
+                        //return;
+                    }
+                    //let next = $(this).next().offset().top;
+                    $("html, body").stop().animate({"scrollTop":`${current*wHeight}`},200,function(){overScroll = true});
+                }else{
+                    current--;
+                    //overScroll=false;
+                    if(current < 0){
+                        overScroll = true;
+                        current = 0;
+                        return
+                    }
+                    if($(this).prev().length != 0){
+                        //let prev = $(this).prev().offset().top;
+                        $("html, body").stop().animate({"scrollTop":`${current*wHeight}`},200,function(){overScroll = true});
+                    }
+                }
+            }
+            console.log(current)
+        })
+        
+    </script>
+</body>
+</html>
