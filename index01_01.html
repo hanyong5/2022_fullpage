@@ -9,6 +9,8 @@
         html,body{height: 100%;}
         html {scroll-behavior: smooth;}
         *{margin: 0;padding: 0;}
+
+        .move{position: fixed;bottom: 10px;left: 10px;padding: 10px;z-index: 9999;}
         /* .section{height: 100vh;} */
         .bg01{background: skyblue;}
         .bg02{background: pink;}
@@ -20,16 +22,17 @@
         .stick{display: none;position: sticky;;top: 0;left: 0;width: 100%;}
         .bg01 .back{background-position: center;background-size: cover;background-repeat: no-repeat;opacity: 0.3;}
         .bg01 .back.backView01{height: 100vh;background: #000;background-image: url(img/sec01_bg.png);}
-        .bg01 .logo{color:white;left:50%;top:50%;font-size:10vh;}
+        .bg01 .logo{color:white;left:50%;top:50%;font-size:10vh;position: fixed;opacity: 0;}
 
         #show-section-0 .bg01 .stick{display: block;}
         #show-section-1 .bg02 .stick{display: block;}
     </style>
 </head>
-<body>
+<body id="show-section-0">
+    <button class="move">click</button>
     <div class="section bg01" id="scroll-section-0">
         <div class="stick back backView01"></div>
-        <h1 class="logo">ID.IM</h1>
+        <h1 class="stick logo">ID.IM</h1>
     </div>
     <div class="section bg02" id="scroll-section-1">
         <h3 class="stick">Lorem, ipsum dolor.</h3>
@@ -38,10 +41,18 @@
     <div class="section bg04" id="scroll-section-3"></div>
 
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/script01.js"></script>
     <script>
-      
+        let moveCount=0;
+        const moveHeight = window.innerHeight;
+        $(".move").click(function(){
+            moveCount++;
+            console.log(moveCount)
+           $("html,body").animate({"scrollTop":moveCount*moveHeight},300)
+
+        })
     </script>
+
 </body>
 </html>

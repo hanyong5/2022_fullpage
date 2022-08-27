@@ -8,7 +8,14 @@
             heightNum:2,
             scrollHeight:0,
             obj:{
-                container:document.querySelector("#scroll-section-0")
+                container:document.querySelector("#scroll-section-0"),
+                messageA:document.querySelector("#scroll-section-0 .logo")
+            },
+            values:{
+                messageA_opacity_in:[0,1,{start:0.4,end:0.5}],
+                messageA_opacity_out:[1,0,{start:0.6,end:0.7}],
+                messageA_translateY_in:[20,0,{start:0.4,end:0.5}],
+                messageA_translateY_out:[0,-20,{start:0.6,end:0.7}],
             }
         },
         {
@@ -58,10 +65,56 @@
         playAnimation();
     }
 
+    function calcValues(values,currentYOffset){
+        let rv;
+        const scrollHeight = sceneInfo[currentScene].scrollHeight;
+        let scrollRatio = currentYOffset / scrollHeight;
+
+        if(values.length == 3){
+            const pratScrollStart = values[2].start * scrollHeight;
+            const partScrollEnd = values[2].end * scrollHeight;
+            const partScrollHeight = partScrollEnd - pratScrollStart;
+
+            if(currentYOffset>=pratScrollStart && currentYOffset<=partScrollEnd){
+                rv = (currentYOffset - pratScrollStart ) / partScrollHeight * (values[1] - values[0]) + values[0]
+            }else if(currentYOffset<pratScrollStart){
+                rv = values[0]
+            }else if(currentYOffset>partScrollEnd){
+                rv = values[1]
+            }
+            console.log(rv)
+
+        }else{
+           
+            rv = scrollRatio * (values[1] - values[0]) + values[0]
+        }
+        return rv;
+    }
+
     function playAnimation() {
+        let objs = sceneInfo[currentScene].obj;
+        let values = sceneInfo[currentScene].values;
+        let currentYOffset = yOffset - preScrollHeight;
+        let scrollHeight = sceneInfo[currentScene].scrollHeight;
+        let scrollRatio = currentYOffset / scrollHeight;
+        
+
         switch(currentScene){
             case 0:
-                console.log("view"+0);
+                let messageA_opacity_in = calcValues(values.messageA_opacity_in,currentYOffset)
+                let messageA_opacity_out = calcValues(values.messageA_opacity_out,currentYOffset)
+                let messageA_translateY_in = calcValues(values.messageA_translateY_in,currentYOffset)
+                let messageA_translateY_out = calcValues(values.messageA_translateY_out,currentYOffset)
+                // console.log(messageA_opacity_in);
+
+                if(scrollRatio <= 0.55){
+                    objs.messageA.style.opacity = messageA_opacity_in;
+                    objs.messageA.style.transform = `translateX(${messageA_translateY_in}%)`;
+                }else{
+                    objs.messageA.style.opacity = messageA_opacity_out;
+                    objs.messageA.style.transform = `translateX(${messageA_translateY_out}%)`;
+                }
+              
                 break;
             case 1:
                 console.log("view"+1);
@@ -85,4 +138,8 @@
     setLayout();
 
 
-})()
+    
+
+    
+
+})();
