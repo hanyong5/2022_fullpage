@@ -11,54 +11,40 @@
     <style>
         html,body{height: 100%;overflow: hidden;}
         *{margin: 0;padding: 0;}
-        .sec{height: 100vh;}
+        .section{height: 100vh;}
         .bg02{background: skyblue;}
         .bg03{background: red;}
-        .bg04{background:blue;}
         .footer{height: 300px;background: blue;}
     </style>
 </head>
 <body>
-    <div class="sec bg01">0</div>
-    <div class="sec bg02">1</div>
-    <div class="sec bg03">2</div>
-    <div>
-     <div class="sec bg04">3</div>
-    </div>
+    <div class="section sec bg01 active"></div>
+    <div class="section sec bg02"></div>
+    <div class="section sec bg03"></div>
+    <div class="section sec bg04"></div>
+    
     <script>
         let current = 0;
-        let viewCount = 1;
-        const divNum = $(".sec").length;
+        let viewCount = 2;
+        
         let overScroll = true;
-        let wHeight = window.innerHeight;
+        let wHeight = window.innerHeight / viewCount;
 
         $("body").mousewheel(function(e){
-            e.preventDefault();
+           
             //console.log(e.deltaY)
             //current=0;
             if(overScroll == true){
                 if(e.deltaY < 0){
                     overScroll=false;
                     current++;
-                    if(current == divNum){
-                        current=divNum-1;
-                        overScroll = true
-                        //return;
-                    }
-                    //let next = $(this).next().offset().top;
-                    $("html, body").stop().animate({"scrollTop":`${current*wHeight}`},200,function(){overScroll = true});
+                    // let next = $(".sec").eq(current).next().offset().top;
+                    // $("html, body").stop().animate({"scrollTop":next},200,function(){overScroll = true});
                 }else{
-                    current--;
                     overScroll=false;
-                    if(current < 0){
-                        overScroll = true;
-                        current = 0;
-                        return
-                    }
-                    if($(this).prev().length != 0){
-                        //let prev = $(this).prev().offset().top;
-                        $("html, body").stop().animate({"scrollTop":`${current*wHeight}`},200,function(){overScroll = true});
-                    }
+                    current--;
+                        // let prev = $(".sec").eq(current).prev().offset().top;
+                        // $("html, body").stop().animate({"scrollTop":prev},200,function(){overScroll = true});
                 }
             }
             console.log(current)

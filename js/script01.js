@@ -5,7 +5,7 @@
 
     const sceneInfo = [
         {
-            heightNum:2,
+            heightNum:1,
             scrollHeight:0,
             obj:{
                 container:document.querySelector("#scroll-section-0"),
@@ -19,10 +19,10 @@
             }
         },
         {
-            heightNum:3,
+            heightNum:1,
             scrollHeight:0,
             obj:{
-                container:document.querySelector("#scroll-section-1")
+                container:document.querySelector("#scroll-section-1"),
             }
         },
         {
@@ -101,25 +101,27 @@
 
         switch(currentScene){
             case 0:
-                let messageA_opacity_in = calcValues(values.messageA_opacity_in,currentYOffset)
-                let messageA_opacity_out = calcValues(values.messageA_opacity_out,currentYOffset)
-                let messageA_translateY_in = calcValues(values.messageA_translateY_in,currentYOffset)
-                let messageA_translateY_out = calcValues(values.messageA_translateY_out,currentYOffset)
-                // console.log(messageA_opacity_in);
+                // let messageA_opacity_in = calcValues(values.messageA_opacity_in,currentYOffset)
+                // let messageA_opacity_out = calcValues(values.messageA_opacity_out,currentYOffset)
+                // let messageA_translateY_in = calcValues(values.messageA_translateY_in,currentYOffset)
+                // let messageA_translateY_out = calcValues(values.messageA_translateY_out,currentYOffset)
 
-                if(scrollRatio <= 0.55){
-                    objs.messageA.style.opacity = messageA_opacity_in;
-                    objs.messageA.style.transform = `translateX(${messageA_translateY_in}%)`;
-                }else{
-                    objs.messageA.style.opacity = messageA_opacity_out;
-                    objs.messageA.style.transform = `translateX(${messageA_translateY_out}%)`;
-                }
-              
+                // if(scrollRatio <= 0.55){
+                //     objs.messageA.style.opacity = messageA_opacity_in;
+                //     objs.messageA.style.transform = `translateX(${messageA_translateY_in}%)`;
+                // }else{
+                //     objs.messageA.style.opacity = messageA_opacity_out;
+                //     objs.messageA.style.transform = `translateX(${messageA_translateY_out}%)`;
+                // }
+                $(".navbar .gnb>ul").removeClass("nMove");
                 break;
             case 1:
-                console.log("view"+1);
+                $(".navbar").addClass("white");
+                 $(".navbar .gnb>ul").addClass("nMove");
+               
                 break;
             case 2:
+                $(".navbar").removeClass("white");
                 console.log("view"+2);
                 break;
             case 3:
@@ -132,6 +134,12 @@
     window.addEventListener("scroll",()=>{
         yOffset = window.pageYOffset;
         scrollLoop();
+
+        if(yOffset > 10){
+            $(".logo_b").addClass("after");
+        }else{
+            $(".logo_b").removeClass("after");
+        }
     })
 
 
