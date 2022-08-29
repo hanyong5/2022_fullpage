@@ -66,6 +66,13 @@ body{
     .back03 .txt1.view{opacity: 1;transform:translateX(0)}
     .back03 .txt2.view{opacity: 1;}
     .back03 .txt3.view{opacity: 1;transform:translateX(0)}
+    
+    .back03.tAdd01 .txt1{transform:translate(100%,0)}
+    .back03.tAdd01 .txt2{transform:translate(-100%,0);opacity: 0;}
+    .back03.tAdd01 .txt3{transform:translate(100%,0);opacity: 0;}
+
+    .back03.tAdd01.tAdd02 .txt1{transform:translate(100%,100px)}
+
 
     .scene.back03{
         display: none;

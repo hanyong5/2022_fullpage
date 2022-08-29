@@ -33,8 +33,18 @@ $("#fullpage").fullpage({
         }
 
         if(index==4){
-            $(".scene .txt1").addClass("tAdd01")
+            $(".scene.back03").addClass("tAdd01")
+        }else{
+            $(".scene.back03").removeClass("tAdd01").removeClass("tAdd02")
         }
+
+        if(index==5){
+            $(".scene.back03").addClass("tAdd01").addClass("tAdd02");
+        }else{
+            //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02")
+        }
+
+
 
 
 
