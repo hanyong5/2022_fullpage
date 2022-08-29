@@ -2,6 +2,8 @@
     let yOffset = 0;
     let preScrollHeight = 0;
     let currentScene = 0;
+    let enterNewScene = false;
+    let scrollRatio = 0;
 
     const sceneInfo = [
         {
@@ -26,7 +28,7 @@
             }
         },
         {
-            heightNum:2,
+            heightNum:10,
             scrollHeight:0,
             obj:{
                 container:document.querySelector("#scroll-section-2")
@@ -49,19 +51,27 @@
     }
 
     function scrollLoop() {
+        enterNewScene = false;
         preScrollHeight = 0;
         for (let i = 0; i < currentScene; i++) {
-            preScrollHeight += sceneInfo[i].scrollHeight;
+            preScrollHeight += sceneInfo[i].scrollHeight-1;
         }
-        if(yOffset > preScrollHeight+sceneInfo[currentScene].scrollHeight){
+        if(yOffset >= preScrollHeight+sceneInfo[currentScene].scrollHeight){
+            enterNewScene = true;
             currentScene++;
+            document.body.setAttribute('id', `show-scene-${currentScene}`);
+            scrollRatio = 0;
+            
         }
         if(yOffset<preScrollHeight){
+            enterNewScene = true;
             if(currentScene<0) return;
             currentScene--;
+            document.body.setAttribute('id', `show-scene-${currentScene}`);
         }
 
-        document.body.setAttribute("id",`show-section-${currentScene}`)
+        document.body.setAttribute("id",`show-section-${currentScene}`);
+        if (enterNewScene) return;
         playAnimation();
     }
 
@@ -97,10 +107,10 @@
         let currentYOffset = yOffset - preScrollHeight;
         let scrollHeight = sceneInfo[currentScene].scrollHeight;
         let scrollRatio = currentYOffset / scrollHeight;
-        
-
+       
         switch(currentScene){
             case 0:
+                console.log("0");
                 // let messageA_opacity_in = calcValues(values.messageA_opacity_in,currentYOffset)
                 // let messageA_opacity_out = calcValues(values.messageA_opacity_out,currentYOffset)
                 // let messageA_translateY_in = calcValues(values.messageA_translateY_in,currentYOffset)
@@ -114,14 +124,25 @@
                 //     objs.messageA.style.transform = `translateX(${messageA_translateY_out}%)`;
                 // }
                 $(".navbar .gnb>ul").removeClass("nMove");
+                $(".navbar .gnb>ul").removeClass("nMove");
+                $("#scroll-section-1").removeClass("view");
+
                 break;
             case 1:
+
+                $(".navbar .gnb>ul").addClass("nMove");
                 $(".navbar").addClass("white");
-                 $(".navbar .gnb>ul").addClass("nMove");
-               
+                $("#scroll-section-1").addClass("view");
+
+                console.log(view)
                 break;
             case 2:
-                $(".navbar").removeClass("white");
+                //$(".navbar").removeClass("white");
+
+                if(scrollRatio>0.1){
+                    
+                }
+                
                 console.log("view"+2);
                 break;
             case 3:

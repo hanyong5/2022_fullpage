@@ -35,17 +35,19 @@
         </div>
     </div>
     <div class="section sec bg02" id="scroll-section-1">
-        <div>
-            <div><img src="img/product_img01.png" alt=""></div>
+        <div class="content">
+            <div class="img"><img src="img/product_img01.png" alt=""></div>
             <div class="textWrap">
-                <h4>하고 싶은것도, 해야 할 것도 많은 당신.<br>
-                    알아서 관리해주는 누가 있다면 얼마나 좋을까..<br>
-                    생각한 적 있을거예요.
-                </h4>
-                <h4>ID.IM은<br>
-                    IDentity(타고난 나)와 I aM(현재의 나)를 분석해<br>
-                    오직 당산만을 위한 단 하나의 맞춤 솔루션을 제공합니다.
-                </h4>
+                <div class="text">
+                    <h4 class="txt1">하고 싶은것도, 해야 할 것도 많은 당신.<br>
+                        알아서 관리해주는 누가 있다면 얼마나 좋을까..<br>
+                        생각한 적 있을거예요.
+                    </h4>
+                    <h4 class="txt2">ID.IM은<br>
+                        IDentity(타고난 나)와 I aM(현재의 나)를 분석해<br>
+                        오직 당산만을 위한 단 하나의 맞춤 솔루션을 제공합니다.
+                    </h4>
+                </div>
                 <div class="btnWrap">
                     <img src="./img/bt_Google Play.png" alt="">
                     <img src="./img/bt_App Store.png" alt="">
@@ -54,7 +56,12 @@
             </div>
         </div>
     </div>
-    <div class="section sec bg03" id="scroll-section-2"></div>
+    <div class="section sec bg03" id="scroll-section-2">
+        <div class="back01">
+            
+        </div>
+
+    </div>
     <div class="section sec bg04" id="scroll-section-3"></div>
 
 
@@ -62,6 +69,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js" integrity="sha512-rCjfoab9CVKOH/w/T6GbBxnAH5Azhy4+q1EXW5XEURefHbIkRbQ++ZR+GBClo3/d3q583X/gO4FKmOFuhkKrdA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="js/script01.js"></script>
 
-
+<script>
+                let scrollDouble = true;
+                
+                $("#scroll-section-0").mousewheel(function(e){
+                    console.log("click");
+                    if(scrollDouble == true){
+                        scrollDouble == false;
+                        if(e.deltaY<0){
+                            let next = $(".section").eq(1).offset().top;
+                            $("html,body").stop().animate({scrollTop:next},100,function(){scrollDouble == true})
+                        }
+                    }   
+                })
+                $("#scroll-section-1").mousewheel(function(e){
+                    console.log("click");
+                    if(e.deltaY>0){
+                        let prev = $(".section").eq(0).offset().top;
+                        $("html,body").animate({scrollTop:0},100)
+                    }
+                    if(e.deltaY<0){
+                       let next = $(".section").eq(2).offset().top;
+                       $("html,body").stop().animate({scrollTop:next},100)
+                    }
+                      
+                })
+                $("#scroll-section-2").mousewheel(function(e){
+                    console.log("click");
+                    if(e.deltaY>0){
+                        let prev = $(".section").eq(1).offset().top;
+                        $("html,body").stop().animate({scrollTop:prev},100)
+                    }
+                    
+                      
+                })
+</script>
 </body>
 </html>

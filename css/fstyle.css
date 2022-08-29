@@ -1,0 +1,84 @@
+@charset "utf-8";
+body{
+    font-family: 'Spoqa Han Sans';
+    font-size:18px
+    }
+
+
+    html,body{height: 100%;}
+    html {scroll-behavior: smooth;}
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    li{list-style: none;}
+    a:link,a:visited{text-decoration: none;color:var(--p1-color)}
+
+
+    h2{font-size: 3em;}
+
+
+    .page1{background-image: url(../img/sec01_bg.png);}
+    .page2{background-image: url(../img/sec02_bg.png);}
+    .page3{background-image: url(../img/sec03_bg.png);}
+
+    .fp-viewing-m1st .navbar{display:none}
+
+    /* bic logo  */
+    .logo_b{
+        position: absolute;left: 50%;top: 50%;width: 1430px;height: 421px;
+        margin-left: calc( -1430px / 2 );margin-top: calc( -421px / 2 );
+        transition:0.3s;z-index: 9999;
+    }
+    .logo_b img{width: 100%;}
+    .logo_b.after{position: fixed;width:78px;left:58px;top:35px;margin: initial;}
+
+
+
+    /* navbar s */
+    .navbar{display: flex;padding: 35px 58px;position: fixed;width: 100%;z-index: 99999;}
+    .navbar h1.logo a{display: block;
+        width:78px;height: 23px;background:url(../img/logo.png);
+        background-position: 0 -23px;text-indent: -9999px;
+    }
+    .navbar .gnb{margin-left: auto;}
+    .navbar .gnb ul{display: flex;height: 100%;transform:translateY(-80px);transition:0.3s}
+    .navbar .gnb ul.view{transform:translateY(0)}
+    .navbar .gnb ul li{height: 100%;}
+    .navbar .gnb ul a{padding: 0 20px;height: 100%;display: flex;justify-content: center;align-items: center;font-weight: bold;}
+    .navbar .gnb ul li:last-child a{padding-right: 0;}
+    .navbar .point{position: relative;}
+    .navbar .point:after{
+        content:"";display: block;width: 8px;height: 8px;border-radius: 50%;background: #ff2c2c;
+        position: absolute;right: 10px;top: -3px;
+    }
+
+    .navbar.white h1 a{background-position: 0 0 !important;}
+    .navbar.white .gnb a{color:white !important}
+
+
+    .fp-viewing-m2st .navbar{display:flex}
+
+/* scene #3 */
+    .fp-viewing-m3st .logo_b{display:none}
+
+    .back03 .txt1{opacity: 0;transition:0.5s;transform:translateX(-100%);}
+    .back03 .txt2{opacity: 0;transition:0.5s}
+    .back03 .txt3{opacity: 0;transition:0.5s;transform:translateX(100%)}
+
+    .back03 .txt1.view{opacity: 1;transform:translateX(0)}
+    .back03 .txt2.view{opacity: 1;}
+    .back03 .txt3.view{opacity: 1;transform:translateX(0)}
+
+    .scene.back03{
+        display: none;
+        width: 100%;height: 100vh;
+        /* background: skyblue; */
+        background-image: url(../img/sec03_bg.png);
+        background-position: center 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: fixed;top: 0;left: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    
