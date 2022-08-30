@@ -2,7 +2,7 @@ $(".logo_b").hide()
 
 $("#fullpage").fullpage({
     menu: ".topMenu",
-    anchors: ["m1st", "m2st", "m3st", "m4st", "m5st", "m6st"],
+    anchors: ["m1st", "m2st", "m3st", "m4st", "m5st", "m6st", "m7st"],
     navigation:false,
     css3:true,
     //scrollOverflow:true,
@@ -38,13 +38,13 @@ $("#fullpage").fullpage({
         if(index==4){
             $(".scene.back03").addClass("fade");
             $(".navbar").removeClass("white");
-            $(".scene.back04 .text-view01").addClass("sizeDown")
+            $(".scene.back04 .text-view01").addClass("view01Move")
             $(".scene.back04 .viewTxtWrap").addClass("txtMove")
             $(".scene.back04 .product1").addClass("p1view")
         }else{
             $(".scene.back03").removeClass("fade");
 
-            $(".scene.back04 .text-view01").removeClass("sizeDown")
+            $(".scene.back04 .text-view01").removeClass("view01Move")
             $(".scene.back04 .viewTxtWrap").removeClass("txtMove")
             $(".scene.back04 .product1").removeClass("p1view")
             // $(".scene.back03").removeClass("tAdd01").removeClass("tAdd02")
@@ -52,10 +52,35 @@ $("#fullpage").fullpage({
 
         if(index==5){
             $(".scene.back03").css("opacity",0);
+            $(".navbar").removeClass("white");
+
+
+            $(".scene.back05 .text-view01").addClass("view01Move")
+            $(".scene.back05 .viewTxtWrap").addClass("txtMove")
+            $(".scene.back05 .product1").addClass("p1view")
 
         }else{
-            //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02")
+            //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
+            $(".scene.back05 .text-view01").removeClass("view01Move")
+            $(".scene.back05 .viewTxtWrap").removeClass("txtMove")
+            $(".scene.back05 .product1").removeClass("p1view")
         }
+
+        // if(index==6){
+        //     $(".scene.back03").css("opacity",0);
+        //     $(".navbar").removeClass("white");
+
+
+        //     $(".scene.back06 .text-view01").addClass("view01Move")
+        //     $(".scene.back06 .viewTxtWrap").addClass("txtMove")
+        //     $(".scene.back06 .product1").addClass("p1view")
+
+        // }else{
+        //     //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
+        //     $(".scene.back06 .text-view01").removeClass("view01Move")
+        //     $(".scene.back06 .viewTxtWrap").removeClass("txtMove")
+        //     $(".scene.back06 .product1").removeClass("p1view")
+        // }
 
 
 
@@ -71,6 +96,15 @@ $("#fullpage").fullpage({
             $(".logo_b").removeClass("after");
         }
 
+        if(index==4){
+            //$(".scene.back04 .product1").addClass("out1")
+        }
+
 
     }
+
+
+    
 })
+
+
