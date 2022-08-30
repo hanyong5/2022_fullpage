@@ -2,7 +2,7 @@ $(".logo_b").hide()
 
 $("#fullpage").fullpage({
     menu: ".topMenu",
-    anchors: ["m1st", "m2st", "m3st", "m4st", "m5st", "m6st", "m7st"],
+    anchors: ["m1st", "m2st", "m3st", "m4st", "m5st", "m6st", "m7st", "m8st", "m9st"],
     navigation:false,
     css3:true,
     //scrollOverflow:true,
@@ -55,32 +55,47 @@ $("#fullpage").fullpage({
             $(".navbar").removeClass("white");
 
 
-            $(".scene.back05 .text-view01").addClass("view01Move")
-            $(".scene.back05 .viewTxtWrap").addClass("txtMove")
-            $(".scene.back05 .product1").addClass("p1view")
+            $(".scene.back05 .conWrap").addClass("conMove");
+            $(".scene.back05 .product1").addClass("p1view");
 
         }else{
             //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
-            $(".scene.back05 .text-view01").removeClass("view01Move")
-            $(".scene.back05 .viewTxtWrap").removeClass("txtMove")
+            $(".scene.back05 .conWrap").removeClass("conMove")
             $(".scene.back05 .product1").removeClass("p1view")
         }
 
-        // if(index==6){
-        //     $(".scene.back03").css("opacity",0);
-        //     $(".navbar").removeClass("white");
+        if(index==6){
+            $(".scene.back03").css("opacity",0);
+            $(".scene.back07").css("opacity",0);
+            $(".navbar").removeClass("white");
 
+            $(".scene.back06 .conWrap").addClass("conMove");
+            $(".scene.back06 .product1").addClass("p1view");
 
-        //     $(".scene.back06 .text-view01").addClass("view01Move")
-        //     $(".scene.back06 .viewTxtWrap").addClass("txtMove")
-        //     $(".scene.back06 .product1").addClass("p1view")
+        }else{
+            //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
+            $(".scene.back06 .conWrap").removeClass("conMove")
+            $(".scene.back06 .product1").removeClass("p1view")
+        }
 
-        // }else{
-        //     //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
-        //     $(".scene.back06 .text-view01").removeClass("view01Move")
-        //     $(".scene.back06 .viewTxtWrap").removeClass("txtMove")
-        //     $(".scene.back06 .product1").removeClass("p1view")
-        // }
+        if(index==7){
+            $(".scene.back03").css("opacity",0);
+            $(".navbar").addClass("white");
+
+            $(".scene.back07").addClass("scMove");
+
+        }else{
+            //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
+           //$(".scene.back07").removeClass("scMove")
+        }
+
+        if(index==8){
+            $(".scene.back03").css("opacity",0);
+            $(".navbar").removeClass("white");
+            $(".scene.back08").addClass("scMove");
+        }else{
+             $(".scene.back08").removeClass("scMove");
+        }
 
 
 
@@ -96,8 +111,8 @@ $("#fullpage").fullpage({
             $(".logo_b").removeClass("after");
         }
 
-        if(index==4){
-            //$(".scene.back04 .product1").addClass("out1")
+        if(index == 8 || index==6){
+            $(".scene.back07").removeClass("scMove");
         }
 
 
