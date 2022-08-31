@@ -1,9 +1,14 @@
 $(".logo_b").hide()
 let slide8_Num = 0;
+let slide18_Num = 0;
 
 $("#fullpage").fullpage({
     menu: ".topMenu",
-    anchors: ["m1st", "m2st", "m3st", "m4st", "m5st", "m6st", "m7st", "m8st", "m9st"],
+    anchors: [
+        "m1st", "m2st", "m3st", "m4st", "m5st", "m6st", "m7st", "m8st", "m9st", "m10st",
+        "m11st", "m12st", "m13st", "m14st", "m15st", "m16st", "m17st", "m18st", "m19st", "m20st",
+        "m21st",
+    ],
     navigation:false,
     css3:true,
     //scrollOverflow:true,
@@ -23,8 +28,11 @@ $("#fullpage").fullpage({
 
         if(index==2){
             $(".navbar .gnb ul").addClass("view")
+            $(".page2 .txtView").addClass("move")
             $(".logo_b").hide()
-            $(".scene").css("opacity",0)
+            $(".scene").css("opacity",0);
+        }else{
+            $(".page2 .txtView").removeClass("move")
         }
         if(index>=3){
             $(".navbar").addClass("white")
@@ -85,15 +93,18 @@ $("#fullpage").fullpage({
             $(".navbar").addClass("white");
 
             $(".scene.back07").addClass("scMove");
+            $(".scene.back07 .txt").addClass("move");
 
         }else{
             //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
            //$(".scene.back07").removeClass("scMove");
+           $(".scene.back07 .txt").removeClass("move");
            
         }
 
-        if(index==8 || index == 9 || index == 10 || index == 11 || index == 12 || index == 13 || index == 14 || index == 15){
+        if(index==8 || index == 9 || index == 10 || index == 11 || index == 12 || index == 13 || index == 14 || index == 15 || index == 16){
             $(".scene.back03").css("opacity",0);
+            $(".scene.back07").css("opacity",0);
             $(".navbar").removeClass("white");
             $(".scene.back08").addClass("scMove");
             slide8_Num = 0;
@@ -143,12 +154,16 @@ $("#fullpage").fullpage({
         if(index==15){
             $(".scene.back03").css("opacity",0);
             $(".scene.back07").css("opacity",0);
+            $(".scene.back16").css("opacity",0);
             $(".navbar").removeClass("white");
             $(".scene.back08 > .wrap").css("background","white")
             $(".scene.back08").css("opacity",0);
             $(".page15 .phone").addClass("hide");
             $(".page15 .sea").addClass("show");
             $(".page15 .txtWrap").addClass("move");
+
+
+            
          
         }else{
             $(".page15 .sea").removeClass("show");
@@ -156,6 +171,92 @@ $("#fullpage").fullpage({
             $(".page15 .txtWrap").removeClass("move");
         }
 
+        if(index==16 || index== 17){
+            $(".scene.back03").css("opacity",0);
+            $(".scene.back07").css("opacity",0);
+            $(".scene.back08").css("opacity",0);
+            $(".scene.back18").css("opacity",0);
+
+            $(".page16 .wrap").addClass("fixed");
+
+            
+            $(".navbar").removeClass("white");
+
+        }else{
+            $(".page16 .wrap").removeClass("fixed");
+        }
+
+        if(index==18 || index == 19){
+            $(".page16 .wrap").addClass("fixed");
+            $(".scene.back18").addClass("view");
+            $(".scene.back03").css({opacity:0});
+            $(".scene.back04").css({opacity:0});
+            $(".scene.back05").css({opacity:0});
+            $(".scene.back06").css({opacity:0});
+            $(".scene.back07").css({opacity:0});
+            $(".scene.back08").css({opacity:0});
+            $(".navbar").removeClass("white");
+
+        }else{
+            $(".scene.back18").removeClass("view");
+        }
+
+
+        if(index==18){
+            slide18_Num = 0;
+            slide18_move(slide18_Num)
+        }
+        if(index==19){
+            slide18_Num = 1;
+            slide18_move(slide18_Num)
+        }
+        if(index==20){
+            $(".scene.back18").addClass("view");
+            $(".scene.back03").css({opacity:0});
+            $(".scene.back04").css({opacity:0});
+
+            $(".navbar").removeClass("white");
+
+            slide18_Num = 2;
+            slide18_move(slide18_Num)
+        }
+
+        if(index==21){
+
+            $(".scene.back03").css({opacity:0,});
+            $(".scene.back04").css({opacity:0,});
+            $(".scene.back07").css({opacity:0,});
+
+            //$(".scene.back18").css({opacity:0,});
+            
+            //$(".navbar").removeClass("white");
+
+        }
+
+        if(index==22){
+
+            $(".scene.back03").css({opacity:0,});
+            $(".scene.back04").css({opacity:0,});
+            $(".scene.back05").css({opacity:0,});
+            $(".scene.back06").css({opacity:0,});
+            $(".scene.back07").css({opacity:0,});
+            $(".scene.back08").css({opacity:0,});
+            $(".scene.back18").css({opacity:0,});
+            
+            $(".navbar").removeClass("white");
+
+        }
+        if(index==23){
+
+            $(".scene.back03").css({opacity:0,});
+            $(".scene.back04").css({opacity:0,});
+            $(".scene.back05").css({opacity:0,});
+            $(".scene.back07").css({opacity:0,});
+
+            
+            $(".navbar").removeClass("white");
+
+        }
 
 
 
@@ -297,3 +398,19 @@ function slide8_move(num){
     // }
     $(".cWrap").stop().animate({left:move},300)
 }
+
+
+function slide18_move(num){
+    let move = num * -640;
+    $(".pWrap .pro").stop().animate({left:move},300)
+}
+
+
+$(".app").click(function(){
+    $(".overlay").fadeIn();
+    $(".appBox").fadeIn();
+})
+$(".close").click(function(){
+    $(".overlay").fadeOut();
+    $(".appBox").fadeOut();
+})

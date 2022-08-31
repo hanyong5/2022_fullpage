@@ -13,7 +13,15 @@ body{
 
 
     h2{font-size:100px;}
+    h3{font-size: 62px;}
+    h3.title{font-size: 42px;font-weight: bold;}
     h4{font-size:22px;line-height: 32px;}
+    h5{font-size:16px;font-weight: normal;}
+    h5.more{font-size:18px;font-weight: normal;display: inline-block;}
+    .mbtn:after{
+        content:"";display: block;width:100%;height: 3px;background: red;
+        margin-top: 5px;
+    }
 
 
     .page1{background-image: url(../img/sec01_bg.png);}
@@ -56,6 +64,97 @@ body{
 
 
     .fp-viewing-m2st .navbar{display:flex}
+
+/* scene #1 */
+.section.page1 .nextBtn{position: absolute;left: 50%;bottom: 30px;z-index:100}
+
+/* scene #2 */
+.page2 .txtView{display: flex;justify-content: center;align-items: center;}
+.page2 .txtView div{position: absolute;}
+
+.page2 .txtView .txt1{
+    transform:translateY(100px);opacity:0;
+}
+.page2 .txtView.move .txt1{
+    animation:txt1m 1.8s alternate forwards;
+}
+
+.page2 .txtView .txt2 h3:first-child{
+    transform:translateX(-200px);opacity:0;
+}
+.page2 .txtView.move .txt2 h3:first-child{
+    animation:txt2m 2s alternate forwards;
+    animation-delay: 2s;
+}
+
+.page2 .txtView .txt2 h3:last-child{
+    transform:translateX(200px);opacity:0;
+}
+.page2 .txtView.move .txt2 h3:last-child{
+    animation:txt3m 2s alternate forwards;
+    animation-delay: 2s;
+}
+
+
+.page2 .txtView .txt3 h3:first-child{
+    transform:translateY(-400px);opacity:0;
+}
+.page2 .txtView.move .txt3 h3:first-child{
+    animation:txt4m 2s alternate forwards;
+    animation-delay: 4s;
+}
+
+.page2 .txtView .txt3 h3:last-child{
+    transform:translateY(400px);opacity:0;
+}
+.page2 .txtView.move .txt3 h3:last-child{
+    animation:txt5m 2s alternate forwards;
+    animation-delay: 4s;
+}
+
+
+
+
+
+
+
+@keyframes txt1m {
+    50%{transform:translateY(0);opacity:1;}
+    80%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(0);opacity:0;}
+}
+
+@keyframes txt2m {
+    30%{transform:translateX(10px);opacity:1;}
+    40%{transform:translateX(0);opacity:1;}
+    90%{transform:translateX(0);opacity:1;}
+    100%{transform:translateX(1000px);opacity:0;}
+}
+@keyframes txt3m {
+    30%{transform:translateX(-10px);opacity:1;}
+    40%{transform:translateX(0);opacity:1;}
+    90%{transform:translateX(0);opacity:1;}
+    100%{transform:translateX(-1000px);opacity:0;}
+}
+
+
+
+@keyframes txt4m {
+    30%{transform:translateY(10px);opacity:1;}
+    40%{transform:translateY(0);opacity:1;}
+    90%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(0);opacity:1;}
+}
+@keyframes txt5m {
+    30%{transform:translateY(-10px);opacity:1;}
+    40%{transform:translateY(0);opacity:1;}
+    90%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(0);opacity:1;}
+}
+
+
+
+
 
 /* scene #3 */
     .fp-viewing-m3st .logo_b{display:none}
@@ -148,14 +247,15 @@ body{
     .scene.back06 .product1.p1view{transform:translateX(0);opacity: 1;transition-delay:0.6s;} 
 
       /* #4 back06 */
-      .scene.back07{background: #000;opacity: 0;transition:0.5s}
+      /* .scene.back07{opacity: 0;transition:0.5s;background-image: url(../img/sec03_01_bg.png);}
       .scene.back07.cDown{opacity: 1;}
 
       .scene.back07 .product1{
         left: 50%;top: 50%;margin-top: -400px;margin-left: -550px;
-        transform-origin: 100%;opacity: 1;transition: 0.3s;transform:translateX(0)}
+        transform-origin: 100%;opacity: 1;transition: 0.3s;transform:translateX(0)} */
       
-
+/* #4 back07 */
+.scene.page7 {}
 
     
     .fp-viewing-m5st .scene.back03{display: none;}
@@ -178,8 +278,11 @@ body{
 
 
     /* #7  */
-    .scene.back07{background: black;transition:0.3s;}
+    .scene.back07{background-image: url(../img/sec03_01_bg.png);transition:0.3s;}
+    .scene.back07 .wrap{width: 100%;height: 100vh}
     .scene.back07.scMove{top: 0;}
+    .scene.back07 .txt{transform: translateY(100px);opacity: 0;transition:1s}
+    .scene.back07 .txt.move{transform: translateY(0px);opacity: 1;}
     
     /* #8  */
 
@@ -234,6 +337,9 @@ body{
     .scene.back07{position: absolute; top:100vh;}
     .scene.back08{position: absolute; top:100vh;}
 
+    .scene.back16{position: absolute; top:100vh;background: skyblue;transition: 0.3s;}
+    .scene.back16.cMove{top:0vh;}
+
     
 .page15{}
 .page15 .wrap{width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
@@ -266,11 +372,77 @@ body{
     border-radius:0px;
 }
 
-.page15 .txtWrap{}
+.page15 .txtWrap{text-shadow: 0 0 10px rgba(0,0,0,0.3);}
 .page15 .txtWrap .txt1{transform:translateX(-300px);transition:0.3s;opacity: 0;}
 .page15 .txtWrap .txt2{transform:translateX(300px);transition:0.3s;opacity: 0;}
 
 .page15 .txtWrap.move .txt1{transform:translateX(0);transition-delay: 2s;opacity: 1;}
 .page15 .txtWrap.move .txt2{transform:translateX(0);transition-delay: 2s;opacity: 1;}
 
-    
+
+.page16{position: relative;}
+.page16 .wrap{
+    width: 100%;height: 200vh;_background: skyblue;padding: 120px;
+    display: flex;flex-wrap: wrap;justify-content: space-between;gap:30px
+}
+.page16 .wrap .pro03{position: relative;top:-300px }
+.page16 .wrap.fixed{position: absolute;top: 0;left: 0;}
+
+.scene.back18{position: absolute;top:0;left: 0;opacity: 0 !important;transition: 0.3s;background: white;}
+.scene.back18.view{opacity: 1 !important;}
+.scene.back18 .wrap{
+    width: 100%;height: 100%;_background: skyblue;padding: 120px;
+    display: flex;justify-content: space-between;gap:30px
+}
+
+
+.scene.back18 .wrap .pWrap{position: absolute;left:calc( 50% - 100px );overflow: hidden;}
+.scene.back18 .wrap .pWrap .pro{
+    position: relative;display: flex; gap:20px;
+    left:0
+
+}
+
+
+.section.page21{background-image: url(../img/sec07_bg.png);}
+.section.page21 .wrap{
+    display: flex;padding: 200px;
+    justify-content:end
+}
+
+.section.page23{padding: 100px;background: #000;}
+
+
+
+.app{
+    position: fixed;width: 72px;height: 72px; 
+    background: #000;right: 100px;bottom: 100px;
+    padding: 15px;display: flex;
+    justify-content: center;align-items: center;
+    border-radius:15px; transition:0.3s;z-index: 9999;
+    cursor:pointer
+}
+.app:hover{
+    border-radius:36px; 
+    background: #5143d4;
+}
+
+.app img{width: 100%}
+
+.appBox{
+    position: fixed;width: 310px;height: 190px;
+    background: white;right: 100px;bottom: 200px;z-index: 999999;
+    border-radius:15px;padding:25px 30px;
+    display: none;
+}
+.appBox h4{font-weight: bold;color:#5143d4;}
+.appBox .close{
+    position: absolute;right: 30px;top: 25px;
+    cursor:pointer
+}
+
+.overlay{
+    position: fixed;background: rgba(0,0,0,0.3);
+    left: 0;top: 0;right: 0;bottom: 0;z-index: 99999;
+    display: none;
+}
