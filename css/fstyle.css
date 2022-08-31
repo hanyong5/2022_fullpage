@@ -183,7 +183,7 @@ body{
     
     /* #8  */
 
-    .scene.back08{background: red;transition:0.3s;z-index: 1;}
+    .scene.back08{background: white;transition:0.3s;z-index: 1;}
     .scene.back08.scMove{top:0;}
     .scene.back08 .wrap{
         width: 100%;height: 100%;
@@ -191,8 +191,41 @@ body{
         background-position: calc( 50% - 320px );
         background-attachment: fixed;
     }
+    .scene.back08 .cardWrap{
+        position: absolute;top:50%;left:calc( 50% - 60px );transform:translate(0,-50%);
+        width: 100%;height: 640px;
+        
+    }
+    .scene.back08 .cWrap{
+        display: flex;gap:20px;position: absolute;
+        top: 0;left:-0px;_background: skyblue;
 
-    
+    }
+    .scene.back08 .cardWrap .card{
+        width: 480px;height: 640px;
+        border-radius: 20px;
+        background: #fff;
+        display: flex;justify-content: center;align-items: center;
+        transition:0.3s
+        /* 480x640 */
+    }
+
+    .scene.back08 .cardWrap .card.bg{
+        background: #5143d4;
+    }
+    .scene.back08 .cardWrap .card.active{
+        background: #5143d4;
+    }
+    .scene.back08 .cardWrap .card.active img{
+        filter:brightness(0) invert(100%);
+    }
+
+    .scene.back08 .product{
+        width: 361px;height: 844px;
+        position: absolute;
+        top: 50%;left: calc( 50% - 560px );transform: translate(0,-50%);
+    }
+    .scene.back08 .product img{position: absolute;display: none;top: 0;}
     
     
     .fp-viewing-m8st .scene.back03{display: none;}
@@ -201,8 +234,43 @@ body{
     .scene.back07{position: absolute; top:100vh;}
     .scene.back08{position: absolute; top:100vh;}
 
-    .scene.back08 .img{
-        filter:brightness(0) invert(100%);
-        }
+    
+.page15{}
+.page15 .wrap{width: 100%;height: 100%;display: flex;justify-content: center;align-items: center;}
+.page15 .wrap div{position: absolute;}
+.page15 .phone{
+    background: rgb(243, 243, 243);
+    width: 440px;height: 800px;
+    border-radius:80px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    transition:3s;
+    opacity: 1;
+}
+.page15 .phone.hide{
+    opacity: 0;
+}
+.page15 .sea{
+    background-image: url(../img/sec04_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 440px;height: 800px;
+    border-radius:80px;
+    transition: 1s;
+    opacity: 0;
+}
+.page15 .sea.show{
+    opacity: 1;
+    width: 100%;
+    transition-delay: 1s;
+    border-radius:0px;
+}
+
+.page15 .txtWrap{}
+.page15 .txtWrap .txt1{transform:translateX(-300px);transition:0.3s;opacity: 0;}
+.page15 .txtWrap .txt2{transform:translateX(300px);transition:0.3s;opacity: 0;}
+
+.page15 .txtWrap.move .txt1{transform:translateX(0);transition-delay: 2s;opacity: 1;}
+.page15 .txtWrap.move .txt2{transform:translateX(0);transition-delay: 2s;opacity: 1;}
 
     

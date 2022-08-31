@@ -1,4 +1,5 @@
 $(".logo_b").hide()
+let slide8_Num = 0;
 
 $("#fullpage").fullpage({
     menu: ".topMenu",
@@ -71,6 +72,7 @@ $("#fullpage").fullpage({
 
             $(".scene.back06 .conWrap").addClass("conMove");
             $(".scene.back06 .product1").addClass("p1view");
+            $(".scene.back07").removeClass("scMove");
 
         }else{
             //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
@@ -86,16 +88,75 @@ $("#fullpage").fullpage({
 
         }else{
             //$(".scene.back03").removeClass("tAdd01").removeClass("tAdd02");
-           //$(".scene.back07").removeClass("scMove")
+           //$(".scene.back07").removeClass("scMove");
+           
         }
 
-        if(index==8){
+        if(index==8 || index == 9 || index == 10 || index == 11 || index == 12 || index == 13 || index == 14 || index == 15){
             $(".scene.back03").css("opacity",0);
             $(".navbar").removeClass("white");
             $(".scene.back08").addClass("scMove");
+            slide8_Num = 0;
+            slide8_move(slide8_Num);
+            
         }else{
              $(".scene.back08").removeClass("scMove");
         }
+
+
+        if(index==9){
+
+            slide8_Num = 1;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==10){
+
+            slide8_Num = 2;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==11){
+
+            slide8_Num = 3;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==12){
+
+            slide8_Num = 4;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==13){
+
+            slide8_Num = 5;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==14){
+
+            slide8_Num = 6;
+            slide8_move(slide8_Num);
+        }
+
+        if(index==15){
+            $(".scene.back03").css("opacity",0);
+            $(".scene.back07").css("opacity",0);
+            $(".navbar").removeClass("white");
+            $(".scene.back08 > .wrap").css("background","white")
+            $(".scene.back08").css("opacity",0);
+            $(".page15 .phone").addClass("hide");
+            $(".page15 .sea").addClass("show");
+            $(".page15 .txtWrap").addClass("move");
+         
+        }else{
+            $(".page15 .sea").removeClass("show");
+            $(".page15 .phone").removeClass("hide");
+            $(".page15 .txtWrap").removeClass("move");
+        }
+
+
 
 
 
@@ -111,15 +172,128 @@ $("#fullpage").fullpage({
             $(".logo_b").removeClass("after");
         }
 
-        if(index == 8 || index==6){
-            $(".scene.back07").removeClass("scMove");
-        }
-
+        // if(index == 8 || index==6){
+        //     $(".scene.back07").removeClass("scMove");
+        // }
 
     }
-
 
     
 })
 
 
+function slide8_move(num){
+    let move = num * -500;
+
+    switch(num){
+        case 0:
+            $(".product img").hide();
+            $(".cWrap .card").eq(0).css("opacity",1);
+            $(".cWrap .card").eq(1).css("opacity",1);
+            $(".cWrap .card").eq(2).css("opacity",1);
+            $(".cWrap .card").eq(3).css("opacity",1);
+            $(".cWrap .card").eq(4).css("opacity",1);
+
+            $(".cWrap .card").eq(1).removeClass("active");
+            $(".cWrap .card").eq(2).removeClass("active");
+            $(".cWrap .card").eq(3).removeClass("active");
+            $(".cWrap .card").eq(4).removeClass("active");
+            $(".back08 .wrap").attr("style","background-image: url(img/sec04_product06_01_img_phone.png)")
+        break;
+        
+        case 1:
+            $(".product img").eq(num).fadeIn()
+            $(".cWrap .card").eq(0).css("opacity",0);
+            $(".cWrap .card").eq(1).css("opacity",1);
+            $(".cWrap .card").eq(2).css("opacity",1);
+            $(".cWrap .card").eq(3).css("opacity",1);
+            $(".cWrap .card").eq(4).css("opacity",1);
+
+            $(".cWrap .card").eq(1).addClass("active");
+            $(".cWrap .card").eq(2).removeClass("active");
+            $(".cWrap .card").eq(3).removeClass("active");
+            $(".cWrap .card").eq(4).removeClass("active");
+        break;
+        case 2:
+            $(".product img").eq(num-1).show()
+            $(".product img").eq(num).fadeIn()
+            $(".cWrap .card").eq(0).css("opacity",0);
+            $(".cWrap .card").eq(1).css("opacity",0);
+            $(".cWrap .card").eq(2).css("opacity",1);
+            $(".cWrap .card").eq(3).css("opacity",1);
+            $(".cWrap .card").eq(4).css("opacity",1);
+
+            $(".cWrap .card").eq(1).addClass("active");
+            $(".cWrap .card").eq(2).addClass("active");
+            $(".cWrap .card").eq(3).removeClass("active");
+            $(".cWrap .card").eq(4).removeClass("active");
+        break;
+
+        case 3:
+            $(".product img").eq(num-1).show()
+            $(".product img").eq(num).fadeIn()
+            $(".cWrap .card").eq(0).css("opacity",0);
+            $(".cWrap .card").eq(1).css("opacity",0);
+            $(".cWrap .card").eq(2).css("opacity",0);
+            $(".cWrap .card").eq(3).css("opacity",1);
+            $(".cWrap .card").eq(4).css("opacity",1);
+
+            $(".cWrap .card").eq(1).addClass("active");
+            $(".cWrap .card").eq(2).addClass("active");
+            $(".cWrap .card").eq(3).addClass("active");
+            $(".cWrap .card").eq(4).removeClass("active");
+        break;
+        case 4:
+            $(".product img").eq(num-1).show()
+            $(".product img").eq(num).fadeIn()
+            $(".cWrap .card").eq(0).css("opacity",0);
+            $(".cWrap .card").eq(1).css("opacity",0);
+            $(".cWrap .card").eq(2).css("opacity",0);
+            $(".cWrap .card").eq(3).css("opacity",0);
+            $(".cWrap .card").eq(4).css("opacity",1);
+
+            $(".cWrap .card").eq(1).addClass("active");
+            $(".cWrap .card").eq(2).addClass("active");
+            $(".cWrap .card").eq(3).addClass("active");
+            $(".cWrap .card").eq(4).addClass("active");
+            $(".back08 .wrap").attr("style","")
+        break;
+
+        case 5:
+            $(".cardWrap").show()
+            $(".product img").eq(num-1).show()
+            $(".cWrap .card").eq(0).css("opacity",0);
+            $(".cWrap .card").eq(1).css("opacity",0);
+            $(".cWrap .card").eq(2).css("opacity",0);
+            $(".cWrap .card").eq(3).css("opacity",0);
+            $(".cWrap .card").eq(4).css("opacity",0);
+
+            $(".cWrap .card").eq(1).addClass("active");
+            $(".cWrap .card").eq(2).addClass("active");
+            $(".cWrap .card").eq(3).addClass("active");
+            $(".cWrap .card").eq(4).addClass("active");
+            $(".scene.back08 > .wrap").css("background","white")
+            $(".scene.back08 .product").stop().animate({"left":"50%","margin-left":-560},300)
+        break;
+
+        case 6:
+            $(".scene.back08 > .wrap").css("background","white")
+            $(".product img").eq(4).show()
+            $(".cardWrap").hide()
+            $(".scene.back08 .product").stop().animate({"left":"50%","margin-left":-245},300)
+            break;
+
+        
+    }
+
+    // if(num == 1){
+    //     $(".cWrap .card").eq(num).css("opacity",0)
+    //     $(".cWrap .card").eq(num).addClass("active");
+    //     $(".cWrap .card").eq(num).prev().css("opacity",0)
+    // }
+    // if(num == 2){
+    //     $(".cWrap .card").eq(num).addClass("active");
+    //     $(".cWrap .card").eq(num).prev().css("opacity",1)
+    // }
+    $(".cWrap").stop().animate({left:move},300)
+}
